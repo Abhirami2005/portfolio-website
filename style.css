@@ -1,63 +1,199 @@
+:root{
+    --primary:#2563eb;
+    --background:#ffffff;
+    --text:#222222;
+    --card:#f4f4f4;
+    --shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+.dark-mode{
+    --background:#121212;
+    --text:#ffffff;
+    --card:#1e1e1e;
+    --shadow:0 2px 8px rgba(255,255,255,0.1);
+}
+
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 body{
-font-family:Arial,sans-serif;
-line-height:1.6;
-padding:20px;
+    font-family:Arial,sans-serif;
+    line-height:1.6;
+    background:var(--background);
+    color:var(--text);
+    padding:20px;
+    transition:all 0.3s ease;
 }
 
-header,
-footer{
-padding:20px;
-background:#f4f4f4;
+/* Header */
+
+header{
+    background:var(--card);
+    padding:20px;
+    text-align:center;
+    border-radius:10px;
+    box-shadow:var(--shadow);
 }
+
+/* Footer */
+
+footer{
+    background:var(--card);
+    padding:20px;
+    text-align:center;
+    border-radius:10px;
+    box-shadow:var(--shadow);
+    margin-top:20px;
+}
+
+/* Navigation - Flexbox */
 
 nav ul{
-display:flex;
-gap:15px;
-list-style:none;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:20px;
+    flex-wrap:wrap;
+    list-style:none;
+    margin-top:15px;
 }
 
-a{
-text-decoration:none;
+nav a{
+    text-decoration:none;
+    color:var(--text);
+    font-weight:bold;
+    transition:0.3s;
 }
+
+nav a:hover{
+    color:var(--primary);
+}
+
+/* Main Layout - CSS Grid */
+
+main{
+    display:grid;
+    gap:20px;
+    margin-top:20px;
+}
+
+/* Sections */
 
 section{
-margin:20px 0;
+    background:var(--card);
+    padding:20px;
+    border-radius:10px;
+    box-shadow:var(--shadow);
 }
 
+/* Articles */
+
+article{
+    background:var(--background);
+    padding:15px;
+    margin-top:15px;
+    border-radius:8px;
+    box-shadow:var(--shadow);
+}
+
+/* Headings */
+
+h1,h2,h3{
+    margin-bottom:10px;
+}
+
+/* Paragraphs */
+
+p{
+    margin-bottom:10px;
+}
+
+/* Forms */
+
 label{
-display:block;
-margin-top:10px;
+    display:block;
+    margin-top:10px;
+    font-weight:bold;
 }
 
 input,
-textarea,
-button{
-width:100%;
-padding:10px;
-margin-top:5px;
+textarea{
+    width:100%;
+    padding:10px;
+    margin-top:5px;
+    border:1px solid #ccc;
+    border-radius:5px;
 }
 
+/* Buttons */
+
+button{
+    width:100%;
+    padding:10px;
+    margin-top:10px;
+    border:none;
+    border-radius:5px;
+    background:var(--primary);
+    color:white;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    opacity:0.9;
+}
+
+/* Theme Toggle Button */
+
+#theme-toggle{
+    width:auto;
+    padding:10px 15px;
+    margin-top:15px;
+}
+
+/* Accessibility */
+
 .skip-link{
-position:absolute;
-left:-9999px;
+    position:absolute;
+    left:-9999px;
 }
 
 .skip-link:focus{
-left:10px;
-top:10px;
-background:white;
-padding:10px;
+    left:10px;
+    top:10px;
+    background:white;
+    color:black;
+    padding:10px;
+    z-index:1000;
 }
+
 a:focus,
 button:focus,
 input:focus,
-textarea:focus {
-    outline: 3px solid #000;
-    outline-offset: 2px;
+textarea:focus{
+    outline:3px solid var(--primary);
+    outline-offset:2px;
+}
+
+/* Tablet */
+
+@media (min-width:768px){
+
+    main{
+        grid-template-columns:1fr 1fr;
+    }
+
+}
+
+/* Desktop */
+
+@media (min-width:1024px){
+
+    main{
+        grid-template-columns:repeat(3,1fr);
+    }
+
 }
