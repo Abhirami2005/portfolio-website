@@ -1,7 +1,4 @@
-const themeBtn = document.getElementById("theme-toggle");
-
-if(themeBtn){
-    themeBtn.addEventListener("click", () => {
-        document.body.classList.toggle("dark-mode");
-    });
-}
+const toggleBtn = document.getElementById("theme-toggle");
+toggleBtn.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+});
